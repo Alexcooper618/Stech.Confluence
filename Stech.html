@@ -1,148 +1,282 @@
+<div id="stech-root" class="stech-page">
+  <!-- HEADER С НОВОСТЯМИ + цифровые часы -->
+  <section class="stech-hero">
+    <!-- Левый блок заголовка -->
+    <div class="stech-hero__left">
+      <h1 class="stech-hero__title">
+        <span class="stech-hero__brand">Sminex.tech</span>
+      </h1>
+      <p class="stech-hero__subtitle">
+        Мы развиваем цифровые решения для всех ключевых процессов компании Sminex
+      </p>
 
-
-
-<!-- HEADER С НОВОСТЯМИ + цифровые часы -->
-<div id="header-block" style="width:100%; text-align:center; padding:30px 40px; background:linear-gradient(180deg, #ffffff 0%, #f2f2f3 100%); display:flex; justify-content:space-between; align-items:flex-start; gap:60px; box-sizing:border-box;">
-
-  <!-- Левый блок заголовка -->
-  <div style="flex:1; text-align:left; max-width:800px;">
-    <h1 style="font-size:48px; font-weight:600; margin-bottom:20px; letter-spacing:-0.5px; line-height:1.2;">
-      <span style="background: linear-gradient(90deg, #007AFF, #1D1D1F); -webkit-background-clip: text; color: transparent;">
-        Sminex.tech
-      </span>
-    </h1>
-    <p style="font-size:20px; color:#6e6e73; max-width:600px;">
-      Мы развиваем цифровые решения для всех ключевых процессов компании Sminex
-    </p>
-
-    <!-- Цифровые часы -->
-    <div id="digital-clock" style="display:flex; align-items:center; gap:12px; margin-top:20px; font-family:'Courier New', Courier, monospace; font-weight:700; font-size:24px; color:#007AFF;">
-      <div id="clock-date" style="background:rgba(0,122,255,0.1); padding:4px 10px; border-radius:8px;"></div>
-      <div style="display:flex; align-items:center; gap:4px; background:rgba(0,122,255,0.1); padding:4px 12px; border-radius:12px;">
-        <span id="clock-hours"></span>
-        <span id="clock-colon" style="animation: blink 3s infinite;">:</span>
-        <span id="clock-minutes"></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Блок новостей справа -->
-  <div style="flex:0 0 600px; position:relative;">
-    <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px; font-size:22px;">
-      <h3 style="font-size:25px; font-weight:600; color:#1d1d1f; margin:0;"><span>📢</span> Новости Департамента IT</h3>
-    </div>
-
-    <div style="position:relative; height:170px; border-radius:20px; overflow:hidden;">
-      <div class="header-news-slider" style="position:absolute; inset:0;">
-        <!-- Новость: Worklogs для нового процесса -->  
-        <a href="https://wiki.sminex.com/display/SMTE/Worklogs+1.1" target="_blank" class="header-news-card">
-          <p style="font-weight:600; margin-bottom:8px; font-size:16px;">Worklogs</p>
-          <span style="color:#6e6e73; font-size:15px;">Обновленная схема логирования рабочего времени для нового процесса разработки</span>
-        </a> 
-
-        <!-- Новость: Стандарты разработки -->  
-        <a href="https://wiki.sminex.com/pages/viewpage.action?pageId=197425644" target="_blank" class="header-news-card">
-          <p style="font-weight:600; margin-bottom:8px; font-size:16px;">Стандарты разработки</p>
-          <span style="color:#6e6e73; font-size:15px;">Новые стандарты для разработчиков IT-команд Sminex</span>
-        </a>
-
-        <!-- Новость: PlayBook -->  
-        <a href="https://wiki.sminex.com/display/SMTE/PlayBook+Sminex+Tech" target="_blank" class="header-news-card">
-          <p style="font-weight:600; margin-bottom:8px; font-size:16px;">PlayBook</p>
-          <span style="color:#6e6e73; font-size:15px;">Переработан дизайн и навигация</span>
-        </a> 
+      <!-- Цифровые часы -->
+      <div class="stech-clock" id="digital-clock">
+        <div id="clock-date" class="stech-clock__date"></div>
+        <div class="stech-clock__time">
+          <span id="clock-hours"></span>
+          <span id="clock-colon" class="stech-clock__colon">:</span>
+          <span id="clock-minutes"></span>
+        </div>
       </div>
     </div>
 
-    <div class="news-dots" style="display:flex; justify-content:center; gap:8px; margin-top:16px;">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div> 
+    <!-- Блок новостей справа -->
+    <div class="stech-hero__news">
+      <div class="stech-hero__news-title">
+        <h3><span>📢</span> Новости Департамента IT</h3>
+      </div>
+
+      <div class="stech-hero__news-slider">
+        <div class="header-news-slider">
+          <!-- Новость: Worklogs для нового процесса -->
+          <a href="https://wiki.sminex.com/display/SMTE/Worklogs+1.1" target="_blank" class="header-news-card">
+            <p>Worklogs</p>
+            <span>Обновленная схема логирования рабочего времени для нового процесса разработки</span>
+          </a>
+
+          <!-- Новость: Стандарты разработки -->
+          <a href="https://wiki.sminex.com/pages/viewpage.action?pageId=197425644" target="_blank" class="header-news-card">
+            <p>Стандарты разработки</p>
+            <span>Новые стандарты для разработчиков IT-команд Sminex</span>
+          </a>
+
+          <!-- Новость: PlayBook -->
+          <a href="https://wiki.sminex.com/display/SMTE/PlayBook+Sminex+Tech" target="_blank" class="header-news-card">
+            <p>PlayBook</p>
+            <span>Переработан дизайн и навигация</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="news-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<style>
-/* Мигающее двоеточие */
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
+  <style>
+    #stech-root {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1d1d1f;
+    }
 
-/* Плавная смена цифр */
-#clock-hours, #clock-minutes {
-  display:inline-block;
-  min-width:20px;
-  text-align:center;
-  transition: all 0.3s;
-}
+    .stech-hero {
+      width: 100%;
+      text-align: center;
+      padding: 30px 24px;
+      background: linear-gradient(180deg, #ffffff 0%, #f2f2f3 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: clamp(24px, 3vw, 60px);
+      box-sizing: border-box;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
 
-/* Карточки новостей */
-.header-news-card {
-  position:absolute;
-  inset:0;
-  background:white;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 6px 24px rgba(0,0,0,0.08);
-  text-align:left;
-  color:#1d1d1f;
-  opacity:0;
-  transform:translateX(30px);
-  transition: all 1s ease;
-  pointer-events: none; /* <-- добавлено */
-}
-.header-news-card.active {
-  opacity:1;
-  transform:translateX(0);
-  pointer-events: auto; /* <-- добавлено */
-}
+    .stech-hero__left {
+      flex: 1 1 320px;
+      text-align: left;
+      max-width: 720px;
+    }
 
-/* Индикаторы */
-.news-dots .dot {
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#d0d0d0;
-  transition:all 0.3s;
-}
-.news-dots .dot.active {
-  background:#007AFF;
-  width:16px;
-  border-radius:6px;
-}
-</style>
+    .stech-hero__title {
+      font-size: clamp(34px, 4vw, 48px);
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
 
-<script>
-document.addEventListener('DOMContentLoaded', function(){
+    .stech-hero__brand {
+      background: linear-gradient(90deg, #007AFF, #1D1D1F);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-  // Слайдер новостей
-  const headerCards = document.querySelectorAll('.header-news-card');
-  const dots = document.querySelectorAll('.news-dots .dot');
-  let headerIndex = 0;
+    .stech-hero__subtitle {
+      font-size: 18px;
+      color: #6e6e73;
+      max-width: 600px;
+      margin: 0;
+    }
 
-  function showHeaderCard() {
-    headerCards.forEach((card,i)=>card.classList.remove('active'));
-    dots.forEach(dot=>dot.classList.remove('active'));
-    headerCards[headerIndex].classList.add('active');
-    dots[headerIndex].classList.add('active');
-    headerIndex = (headerIndex + 1) % headerCards.length;
-  }
-  showHeaderCard();
-  setInterval(showHeaderCard, 6000);
+    .stech-clock {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 700;
+      font-size: 22px;
+      color: #007AFF;
+      flex-wrap: wrap;
+    }
 
-  // Цифровые часы
-  function updateDigitalClock() {
-    const now = new Date();
-    document.getElementById('clock-date').textContent = now.toLocaleDateString('ru-RU');
-    document.getElementById('clock-hours').textContent = String(now.getHours()).padStart(2,'0');
-    document.getElementById('clock-minutes').textContent = String(now.getMinutes()).padStart(2,'0');
-  }
-  updateDigitalClock();
-  setInterval(updateDigitalClock, 60000);
+    .stech-clock__date {
+      background: rgba(0, 122, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
 
-});
-</script>
+    .stech-clock__time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0, 122, 255, 0.1);
+      padding: 4px 12px;
+      border-radius: 12px;
+    }
+
+    .stech-clock__colon {
+      animation: stech-blink 3s infinite;
+    }
+
+    .stech-hero__news {
+      flex: 1 1 360px;
+      position: relative;
+      max-width: 520px;
+      min-width: 320px;
+    }
+
+    .stech-hero__news-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .stech-hero__news-title h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1d1d1f;
+      margin: 0;
+    }
+
+    .stech-hero__news-slider {
+      position: relative;
+      height: 180px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .header-news-slider {
+      position: absolute;
+      inset: 0;
+    }
+
+    .header-news-card {
+      position: absolute;
+      inset: 0;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      text-align: left;
+      color: #1d1d1f;
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 0.8s ease;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .header-news-card p {
+      font-weight: 600;
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .header-news-card span {
+      color: #6e6e73;
+      font-size: 15px;
+    }
+
+    .header-news-card.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    .news-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .news-dots .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d0d0d0;
+      transition: all 0.3s;
+    }
+
+    .news-dots .dot.active {
+      background: #007AFF;
+      width: 16px;
+      border-radius: 6px;
+    }
+
+    @keyframes stech-blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    @media (max-width: 980px) {
+      .stech-hero {
+        padding: 24px 16px;
+      }
+      .stech-hero__news {
+        max-width: none;
+      }
+    }
+  </style>
+
+  <script>
+    (function initStechHero() {
+      const root = document.getElementById('stech-root');
+      if (!root) return;
+
+      const headerCards = root.querySelectorAll('.header-news-card');
+      const dots = root.querySelectorAll('.news-dots .dot');
+      const dateEl = root.querySelector('#clock-date');
+      const hoursEl = root.querySelector('#clock-hours');
+      const minutesEl = root.querySelector('#clock-minutes');
+      if (!headerCards.length || !dots.length || !dateEl || !hoursEl || !minutesEl) return;
+
+      let headerIndex = 0;
+
+      function showHeaderCard() {
+        headerCards.forEach(card => card.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        headerCards[headerIndex].classList.add('active');
+        dots[headerIndex].classList.add('active');
+        headerIndex = (headerIndex + 1) % headerCards.length;
+      }
+
+      function updateDigitalClock() {
+        const now = new Date();
+        dateEl.textContent = now.toLocaleDateString('ru-RU');
+        hoursEl.textContent = String(now.getHours()).padStart(2, '0');
+        minutesEl.textContent = String(now.getMinutes()).padStart(2, '0');
+      }
+
+      showHeaderCard();
+      updateDigitalClock();
+      setInterval(showHeaderCard, 6000);
+      setInterval(updateDigitalClock, 60000);
+    })();
+  </script>
 <!-- === LINEAR STYLE CHANGELOG (c бейджем "новое") === -->
 <div class="changelog">
 
@@ -246,36 +380,36 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!-- === STYLES === -->
 <style>
-.changelog {
+#stech-root .changelog {
   font-family: Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   color:#1d1d1f;
   max-width:800px;margin:0 auto;
   padding:40px 24px 80px;
   border-left:1.5px solid #e5e5e5;
 }
-.changelog-header{font-size:22px;font-weight:700;margin-bottom:36px;color:#007aff;padding-left:12px;}
-.changelog-entry{
+#stech-root .changelog-header{font-size:22px;font-weight:700;margin-bottom:36px;color:#007aff;padding-left:12px;}
+#stech-root .changelog-entry{
   display:flex;align-items:flex-start;gap:24px;margin-bottom:32px;
   opacity:0;transform:translateY(20px);
   transition:all .6s cubic-bezier(.22,1,.36,1);
 }
-.changelog-entry.visible{opacity:1;transform:translateY(0);}
-.entry-date{flex:0 0 90px;font-size:13px;color:#6e6e73;text-align:right;margin-top:3px;position:relative;}
-.entry-content{flex:1;padding-left:12px;border-left:2px solid #007aff20;}
-.entry-title{font-weight:600;font-size:15px;margin-bottom:6px;}
-.entry-content p{margin:0;font-size:14px;color:#444;line-height:1.5;}
-.entry-link{display:inline-block;margin-top:6px;font-size:13px;color:#007aff;font-weight:600;text-decoration:none;}
-.entry-link:hover{color:#0056d6;}
-.hidden{display:none;}
-.show-more-btn{
+#stech-root .changelog-entry.visible{opacity:1;transform:translateY(0);}
+#stech-root .entry-date{flex:0 0 90px;font-size:13px;color:#6e6e73;text-align:right;margin-top:3px;position:relative;}
+#stech-root .entry-content{flex:1;padding-left:12px;border-left:2px solid #007aff20;}
+#stech-root .entry-title{font-weight:600;font-size:15px;margin-bottom:6px;}
+#stech-root .entry-content p{margin:0;font-size:14px;color:#444;line-height:1.5;}
+#stech-root .entry-link{display:inline-block;margin-top:6px;font-size:13px;color:#007aff;font-weight:600;text-decoration:none;}
+#stech-root .entry-link:hover{color:#0056d6;}
+#stech-root .hidden{display:none;}
+#stech-root .show-more-btn{
   display:block;margin:24px auto 0;
   background:#f5f6f7;border:1px solid #d1d1d6;border-radius:12px;
   color:#007aff;font-weight:600;padding:10px 18px;cursor:pointer;
   transition:all .2s;
 }
-.show-more-btn:hover{background:#e5e6ea;border-color:#c5c5c8;}
+#stech-root .show-more-btn:hover{background:#e5e6ea;border-color:#c5c5c8;}
 /* Бейдж "новое" */
-.new-dot{
+#stech-root .new-dot{
   position:absolute;top:2px;right:-10px;width:8px;height:8px;
   background:#007aff;border-radius:50%;
   animation:pulse 1.8s infinite;
@@ -289,40 +423,38 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!-- === SCRIPT === -->
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-  const entries=document.querySelectorAll(".changelog-entry");
-  const btn=document.querySelector(".show-more-btn");
+  (function initChangelog(){
+    const root=document.getElementById('stech-root');
+    if(!root)return;
 
-  // --- Анимация появления при скролле ---
-  const observer=new IntersectionObserver(items=>{
-    items.forEach(i=>{
-      if(i.isIntersecting)i.target.classList.add("visible");
+    const entries=root.querySelectorAll('.changelog-entry');
+    const btn=root.querySelector('.show-more-btn');
+    if(!entries.length||!btn)return;
+
+    const observer=new IntersectionObserver(items=>{
+      items.forEach(i=>{ if(i.isIntersecting) i.target.classList.add('visible'); });
+    },{threshold:0.2});
+    entries.forEach(e=>observer.observe(e));
+
+    btn.addEventListener('click',()=>{
+      root.querySelectorAll('.changelog-entry.hidden').forEach(e=>{
+        e.classList.remove('hidden');observer.observe(e);
+      });
+      btn.style.display='none';
     });
-  },{threshold:0.2});
-  entries.forEach(e=>observer.observe(e));
 
-  // --- Показ скрытых ---
-  btn.addEventListener("click",()=>{
-    document.querySelectorAll(".changelog-entry.hidden").forEach(e=>{
-      e.classList.remove("hidden");observer.observe(e);
+    const today=new Date();
+    entries.forEach(e=>{
+      const dateStr=e.dataset.date;
+      if(!dateStr)return;
+      const date=new Date(dateStr);
+      if((today-date)/86400000<=3){
+        const dot=document.createElement('span');
+        dot.className='new-dot';
+        e.querySelector('.entry-date')?.appendChild(dot);
+      }
     });
-    btn.style.display="none";
-  });
-
-  // --- Бейдж "новое" (≤3 дня) ---
-  const today=new Date();
-  entries.forEach(e=>{
-    const dateStr=e.dataset.date;
-    if(!dateStr)return;
-    const date=new Date(dateStr);
-    const diffDays=(today-date)/86400000;
-    if(diffDays<=3){
-      const dot=document.createElement("span");
-      dot.className="new-dot";
-      e.querySelector(".entry-date").appendChild(dot);
-    }
-  });
-});
+  })();
 </script>
 <!-- Блок продуктовой разработки -->
 <div class="prod-block">
@@ -331,7 +463,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     В Sminex Tech мы создаем цифровые продукты, которые упрощают работу компании. Все решения объединены в 4 кластера цифровизации, каждый автоматизирует и оптимизирует своё направление:
 
 <style>
-.prod-block {
+#stech-root .prod-block {
   width:100%;
   max-width:1200px;
   margin:0 auto;
@@ -339,13 +471,13 @@ document.addEventListener("DOMContentLoaded",()=>{
   text-align:center;
 }
 
-.prod-block h2 {
+#stech-root .prod-block h2 {
   font-size:36px;
   font-weight:600;
   margin-bottom:60px;
 }
 
-.prod-block p {
+#stech-root .prod-block p {
   font-size:16px;
   color:#6e6e73;
   max-width:800px;
@@ -353,7 +485,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 }
 
 /* Контейнер карточек */
-.prod-cards-wrapper {
+#stech-root .prod-cards-wrapper {
   display:flex;
   justify-content:space-between;
   gap:20px;
@@ -361,7 +493,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 }
 
 /* Карточки */
-.prod-card {
+#stech-root .prod-card {
   flex:1 1 220px;
   background:white;
   border-radius:28px;
@@ -375,30 +507,30 @@ document.addEventListener("DOMContentLoaded",()=>{
   min-width:0; /* важно для адаптивности */
 }
 
-.prod-card h3 {
+#stech-root .prod-card h3 {
   font-size:20px;
   font-weight:600;
   margin-bottom:10px;
 }
 
-.prod-card p {
+#stech-root .prod-card p {
   color:#6e6e73;
   font-size:14px;
 }
 
-.prod-card:hover {
+#stech-root .prod-card:hover {
   transform: translateY(-10px);
   box-shadow:0 10px 40px rgba(0,0,0,0.1);
 }
 
 /* Адаптив */
 @media (max-width:1024px) {
-  .prod-card h3 { font-size:18px; }
-  .prod-card p { font-size:13px; }
+  #stech-root .prod-card h3 { font-size:18px; }
+  #stech-root .prod-card p { font-size:13px; }
 }
 
 @media (max-width:900px) {
-  .prod-cards-wrapper {
+  #stech-root .prod-cards-wrapper {
     flex-direction:column;
     gap:20px;
   }
@@ -681,7 +813,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 <style>
 /* === Основные контейнеры === */
-#assets-clusters-root {
+#stech-root #assets-clusters-root {
   font-family: Inter, Arial, sans-serif;
   padding: 14px;
   color: #222;
@@ -689,12 +821,12 @@ document.addEventListener("DOMContentLoaded",()=>{
   margin: 0 auto;
 }
 
-.cluster {
+#stech-root .cluster {
   margin-bottom: 28px;
 }
 
 /* === Заголовки кластеров === */
-.cluster-head {
+#stech-root .cluster-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -702,19 +834,19 @@ document.addEventListener("DOMContentLoaded",()=>{
   margin-bottom: 10px;
 }
 
-.cluster-title {
+#stech-root .cluster-title {
   font-size: 18px;
   font-weight: 700;
   color: #0B3C5D;
 }
 
-.cluster-count {
+#stech-root .cluster-count {
   font-size: 13px;
   color: #666;
 }
 
 /* === Карточки === */
-.cluster-row {
+#stech-root .cluster-row {
   display: flex;
   gap: 12px;
   overflow-x: auto;
@@ -724,7 +856,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   align-items: stretch;
 }
 
-.card {
+#stech-root .card {
   flex: 0 0 24%;
   min-width: 220px;
   max-width: 300px;
@@ -740,19 +872,19 @@ document.addEventListener("DOMContentLoaded",()=>{
   position: relative;
 }
 
-@media (max-width: 1100px) { .card { flex: 0 0 32%; } }
-@media (max-width: 760px) { .card { flex: 0 0 70%; min-width: 260px; } }
+@media (max-width: 1100px) { #stech-root .card { flex: 0 0 32%; } }
+@media (max-width: 760px) { #stech-root .card { flex: 0 0 70%; min-width: 260px; } }
 
-.card-head { display: flex; gap: 10px; align-items: center; }
-.card-avatar {
+#stech-root .card-head { display: flex; gap: 10px; align-items: center; }
+#stech-root .card-avatar {
   width: 48px; height: 48px;
   border-radius: 6px; background: #f4f6f8;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden; flex: 0 0 48px;
 }
-.card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+#stech-root .card-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-.card-title {
+#stech-root .card-title {
   font-weight: 600;
   color: #0B3C5D;
   font-size: 15px;
@@ -764,13 +896,13 @@ document.addEventListener("DOMContentLoaded",()=>{
   line-height: 1.2;
 }
 
-.card-sub {
+#stech-root .card-sub {
   font-size: 12px;
   color: #666;
   margin-top: 6px;
 }
 
-.card-body.desc {
+#stech-root .card-body.desc {
   margin-top: 8px;
   font-size: 13px;
   color: #222;
@@ -783,7 +915,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 }
 
 /* === Владелец продукта === */
-.team {
+#stech-root .team {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -791,7 +923,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   margin-top: 8px;
 }
 
-.owner-link {
+#stech-root .owner-link {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -799,7 +931,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   color: inherit;
 }
 
-.owner-link .avatar-sm {
+#stech-root .owner-link .avatar-sm {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -813,33 +945,33 @@ document.addEventListener("DOMContentLoaded",()=>{
   color: #163a63;
 }
 
-.owner-link .avatar-sm img {
+#stech-root .owner-link .avatar-sm img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.name-wrap {
+#stech-root .name-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   line-height: 1.2;
 }
 
-.tm-name {
+#stech-root .tm-name {
   font-weight: 600;
   font-size: 13px;
   color: #0b3c5d;
 }
 
-.owner-pos {
+#stech-root .owner-pos {
   font-size: 12px;
   color: #666;
   font-style: italic;
 }
 
 /* === Команда продукта === */
-.team-list {
+#stech-root .team-list {
   margin-top: 8px;
   border-top: 1px dashed #e6e9ee;
   padding-top: 8px;
@@ -847,16 +979,16 @@ document.addEventListener("DOMContentLoaded",()=>{
   overflow: auto;
 }
 
-.team-item {
+#stech-root .team-item {
   display: flex;
   gap: 10px;
   align-items: center;
   padding: 6px 4px;
   border-radius: 6px;
 }
-.team-item:hover { background: #fbfdff; cursor: default; }
+#stech-root .team-item:hover { background: #fbfdff; cursor: default; }
 
-.avatar-lg {
+#stech-root .avatar-lg {
   width: 36px; height: 36px;
   border-radius: 50%;
   background: #f4f6f8;
@@ -864,19 +996,19 @@ document.addEventListener("DOMContentLoaded",()=>{
   font-size: 14px; color: #163a63;
   overflow: hidden;
 }
-.avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+#stech-root .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
 
-.ti-text { display: flex; flex-direction: column; }
-.ti-name { font-size: 13px; color: #0b3c5d; font-weight: 600; }
-.ti-pos { font-size: 12px; color: #444; font-style: italic; margin-top: 2px; }
+#stech-root .ti-text { display: flex; flex-direction: column; }
+#stech-root .ti-name { font-size: 13px; color: #0b3c5d; font-weight: 600; }
+#stech-root .ti-pos { font-size: 12px; color: #444; font-style: italic; margin-top: 2px; }
 
 /* === Кнопки прокрутки === */
-.cluster-wrap {
+#stech-root .cluster-wrap {
   position: relative;
   overflow: visible;
 }
 
-.scroll-btn {
+#stech-root .scroll-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -893,12 +1025,12 @@ document.addEventListener("DOMContentLoaded",()=>{
   z-index: 10;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-.scroll-btn.left { left: -48px; }
-.scroll-btn.right { right: -48px; }
-.scroll-btn[disabled] { opacity: 0.4; cursor: default; }
+#stech-root .scroll-btn.left { left: -48px; }
+#stech-root .scroll-btn.right { right: -48px; }
+#stech-root .scroll-btn[disabled] { opacity: 0.4; cursor: default; }
 
 /* === Аккордеоны (по ролям) === */
-.collapsible-header {
+#stech-root .collapsible-header {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -906,7 +1038,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   user-select: none;
 }
 /* --- Сворачивание кластеров в режиме "по продуктам" --- */
-.cluster-head.collapsible-header .arrow {
+#stech-root .cluster-head.collapsible-header .arrow {
   width: 8px;
   height: 8px;
   border-right: 2px solid #0b3c5d;
@@ -915,21 +1047,21 @@ document.addEventListener("DOMContentLoaded",()=>{
   transition: transform 0.2s ease;
   margin-right: 6px;
 }
-.cluster-head.collapsible-header.collapsed .arrow {
+#stech-root .cluster-head.collapsible-header.collapsed .arrow {
   transform: rotate(135deg);
 }
-.cluster-content.collapsed {
+#stech-root .cluster-content.collapsed {
   display: none;
 }
-.cluster-head:hover {
+#stech-root .cluster-head:hover {
   background: #f9fafc;
   border-radius: 4px;
 }
 
-.role-content.collapsed,
-.cluster-content.collapsed { display: none; }
+#stech-root .role-content.collapsed,
+#stech-root .cluster-content.collapsed { display: none; }
 
-.collapsible-header .arrow {
+#stech-root .collapsible-header .arrow {
   display: inline-block;
   width: 8px; height: 8px;
   border-right: 2px solid #0b3c5d;
@@ -938,31 +1070,31 @@ document.addEventListener("DOMContentLoaded",()=>{
   transition: transform 0.2s ease;
   margin-right: 6px;
 }
-.collapsible-header.collapsed .arrow { transform: rotate(135deg); }
+#stech-root .collapsible-header.collapsed .arrow { transform: rotate(135deg); }
 
 /* === Прочее === */
-.cluster-footer { margin-top: 8px; font-size: 12px; color: #666; }
-.card.highlight {
+#stech-root .cluster-footer { margin-top: 8px; font-size: 12px; color: #666; }
+#stech-root .card.highlight {
   box-shadow: 0 8px 30px rgba(11,105,255,0.12);
   border-color: #0b69ff !important;
   transform: translateY(-4px);
 }
 /* === Восстанавливаем иконку дорожной карты === */
-.roadmap {
+#stech-root .roadmap {
   margin-top: 8px;
   font-size: 13px;
 }
-.roadmap a {
+#stech-root .roadmap a {
   color: #0b69ff;
   text-decoration: none;
   display: inline-flex;
   gap: 6px;
   align-items: center;
 }
-.roadmap a:hover {
+#stech-root .roadmap a:hover {
   text-decoration: underline;
 }
-.roadmap .icon {
+#stech-root .roadmap .icon {
   width: 18px;
   height: 18px;
   display: inline-block;
@@ -970,7 +1102,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 }
 
 /* === Улучшаем описание продукта === */
-.card-body.desc {
+#stech-root .card-body.desc {
   margin-top: 10px;
   font-size: 13px;
   color: #333;
@@ -983,7 +1115,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 }
 
 /* === Попап поверх всех элементов (фикс перекрытия стрелками) === */
-.popup {
+#stech-root .popup {
   position: fixed;
   right: 20px;
   bottom: 20px;
@@ -999,7 +1131,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   display: none;
 }
 /* === Восстанавливаем аккуратную верстку режима "по ролям" === */
-.role-section {
+#stech-root .role-section {
   margin-bottom: 28px;
   border-radius: 10px;
   background: #fff;
@@ -1008,7 +1140,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   box-shadow: 0 2px 6px rgba(0,0,0,0.04);
 }
 
-.role-section h4 {
+#stech-root .role-section h4 {
   font-size: 17px;
   font-weight: 600;
   color: #0b3c5d;
@@ -1020,13 +1152,13 @@ document.addEventListener("DOMContentLoaded",()=>{
   gap: 6px;
 }
 
-.cluster-block {
+#stech-root .cluster-block {
   margin: 10px 0 18px 12px;
   border-left: 3px solid #e6e9ee;
   padding-left: 12px;
 }
 
-.cluster-head {
+#stech-root .cluster-head {
   font-weight: 600;
   color: #0b3c5d;
   font-size: 14px;
@@ -1037,12 +1169,12 @@ document.addEventListener("DOMContentLoaded",()=>{
   cursor: pointer;
 }
 
-.cluster-content {
+#stech-root .cluster-content {
   margin-top: 6px;
   padding-left: 10px;
 }
 
-.owner-block {
+#stech-root .owner-block {
   margin: 8px 0 14px 0;
   padding: 10px;
   border-radius: 8px;
@@ -1053,22 +1185,22 @@ document.addEventListener("DOMContentLoaded",()=>{
   flex-wrap: wrap;
 }
 
-.owner-meta {
+#stech-root .owner-meta {
   min-width: 180px;
 }
 
-.o-name {
+#stech-root .o-name {
   font-weight: 600;
   color: #0b3c5d;
   font-size: 14px;
 }
 
-.o-count {
+#stech-root .o-count {
   font-size: 12px;
   color: #777;
 }
 
-.member-row {
+#stech-root .member-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -1077,11 +1209,11 @@ document.addEventListener("DOMContentLoaded",()=>{
   border-bottom: 1px dashed #e6e9ee;
 }
 
-.member-row:last-child {
+#stech-root .member-row:last-child {
   border-bottom: none;
 }
 
-.member-avatar {
+#stech-root .member-avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -1095,33 +1227,33 @@ document.addEventListener("DOMContentLoaded",()=>{
   color: #163a63;
 }
 
-.member-info {
+#stech-root .member-info {
   flex: 1;
 }
 
-.m-name {
+#stech-root .m-name {
   font-weight: 600;
   font-size: 13px;
   color: #0b3c5d;
 }
 
-.m-pos {
+#stech-root .m-pos {
   font-size: 12px;
   color: #666;
   font-style: italic;
 }
 
-.member-prods a {
+#stech-root .member-prods a {
   font-size: 12px;
   color: #0b69ff;
   text-decoration: none;
 }
 
-.member-prods a:hover {
+#stech-root .member-prods a:hover {
   text-decoration: underline;
 }
 /* --- Ограничение описания продукта 4 строками --- */
-.card-body.desc {
+#stech-root .card-body.desc {
   display: -webkit-box !important;
   -webkit-line-clamp: 4 !important;
   -webkit-box-orient: vertical !important;
@@ -1133,7 +1265,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   margin-bottom: 8px;
 }
 /* --- Выравнивание стрелки и названия кластера в режиме "по ролям" --- */
-.cluster-head {
+#stech-root .cluster-head {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1146,7 +1278,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   padding-left: 2px; /* лёгкий отступ для аккуратности */
 }
 
-.cluster-head .arrow {
+#stech-root .cluster-head .arrow {
   width: 8px;
   height: 8px;
   border-right: 2px solid #0b3c5d;
@@ -1156,24 +1288,24 @@ document.addEventListener("DOMContentLoaded",()=>{
   margin: 0; /* убрали прежний большой отступ */
 }
 
-.cluster-head.collapsed .arrow {
+#stech-root .cluster-head.collapsed .arrow {
   transform: rotate(-45deg);
 }
 
-.cluster-head .cluster-name {
+#stech-root .cluster-head .cluster-name {
   display: inline-block;
   vertical-align: middle;
   margin: 0; /* плотное прилегание к стрелке */
 }
 /* --- Исправление выравнивания названий кластеров (по ролям) --- */
-.cluster-block {
+#stech-root .cluster-block {
   margin: 10px 0 18px 16px;
   border-left: 3px solid #e6e9ee;
   padding-left: 10px;
 }
 
 /* Заголовок кластера — стрелка и текст в одну линию, прижаты влево */
-.cluster-head {
+#stech-root .cluster-head {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
@@ -1189,7 +1321,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 }
 
 /* Стрелка возле названия */
-.cluster-head .arrow {
+#stech-root .cluster-head .arrow {
   width: 8px;
   height: 8px;
   border-right: 2px solid #0b3c5d;
@@ -1199,18 +1331,18 @@ document.addEventListener("DOMContentLoaded",()=>{
   margin: 0;
 }
 
-.cluster-head.collapsed .arrow {
+#stech-root .cluster-head.collapsed .arrow {
   transform: rotate(-45deg);
 }
 
-.cluster-head .cluster-name {
+#stech-root .cluster-head .cluster-name {
   display: inline-block;
   vertical-align: middle;
   margin: 0;
 }
 
 /* Добавим лёгкую подсветку при наведении */
-.cluster-head:hover {
+#stech-root .cluster-head:hover {
   background: #f9fafc;
   border-radius: 4px;
 }
@@ -1243,8 +1375,8 @@ document.addEventListener("DOMContentLoaded",()=>{
 #searchPopup *,
 #searchSuggestions,
 #searchSuggestions *,
-.popup,
-.popup * {
+#stech-root .popup,
+#stech-root .popup * {
   text-align: left !important;
   justify-content: flex-start !important;
   align-items: flex-start !important;
@@ -1270,8 +1402,8 @@ document.addEventListener("DOMContentLoaded",()=>{
 #searchPopup *,
 #searchSuggestions,
 #searchSuggestions *,
-.popup,
-.popup * {
+#stech-root .popup,
+#stech-root .popup * {
   text-align: left !important;
   justify-content: flex-start !important;
   align-items: flex-start !important;
@@ -2515,7 +2647,7 @@ return groups;
 </div>
 
 <style>
-.centers-block {
+#stech-root .centers-block {
   padding:80px 20px;
   max-width:1100px;
   margin:0 auto;
@@ -2523,13 +2655,13 @@ return groups;
   background:linear-gradient(180deg, #ffffff 0%, #f7f7f8 100%);
 }
 
-.centers-block h2 {
+#stech-root .centers-block h2 {
   font-size:36px;
   font-weight:600;
   margin-bottom:10px;
 }
 
-.centers-block p {
+#stech-root .centers-block p {
   font-size:18px;
   color:#6e6e73;
   margin-bottom:50px;
@@ -2539,7 +2671,7 @@ return groups;
 }
 
 /* Горизонтальный скролл */
-.centers-wrapper {
+#stech-root .centers-wrapper {
   display:flex;
   overflow-x:auto;
   gap:20px;
@@ -2549,7 +2681,7 @@ return groups;
 }
 
 /* Карточки */
-.center-card {
+#stech-root .center-card {
   flex:0 0 280px;
   background:white;
   border-radius:20px;
@@ -2561,13 +2693,13 @@ return groups;
   color:inherit;
 }
 
-.center-card:hover {
+#stech-root .center-card:hover {
   transform: translateY(-8px);
   box-shadow:0 12px 40px rgba(0,0,0,0.1);
 }
 
 /* Скролл Firefox */
-.centers-wrapper {
+#stech-root .centers-wrapper {
   scrollbar-width: thin;
   scrollbar-color: #007AFF rgba(0,0,0,0.1);
 }
@@ -2624,39 +2756,39 @@ return groups;
 
 <style>
 /* === Общие стили === */
-.sprints-block { max-width:1100px; margin:80px auto; font-family:'Inter', Arial, sans-serif; position:relative; overflow:hidden; border-radius:20px; background:linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%); box-shadow:0 8px 30px rgba(0,0,0,0.05); padding:60px 40px; }
-.sprints-decor-top { position:absolute; top:-40px; right:-40px; width:160px; height:160px; border-radius:50%; background:radial-gradient(circle at center, rgba(0,122,255,0.15) 0%, transparent 70%); }
-.sprints-decor-bottom { position:absolute; bottom:-60px; left:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle at center, rgba(0,0,0,0.05) 0%, transparent 70%); }
+#stech-root .sprints-block { max-width:1100px; margin:80px auto; font-family:'Inter', Arial, sans-serif; position:relative; overflow:hidden; border-radius:20px; background:linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%); box-shadow:0 8px 30px rgba(0,0,0,0.05); padding:60px 40px; }
+#stech-root .sprints-decor-top { position:absolute; top:-40px; right:-40px; width:160px; height:160px; border-radius:50%; background:radial-gradient(circle at center, rgba(0,122,255,0.15) 0%, transparent 70%); }
+#stech-root .sprints-decor-bottom { position:absolute; bottom:-60px; left:-60px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle at center, rgba(0,0,0,0.05) 0%, transparent 70%); }
 
-.sprints-block h2 { text-align:center; margin-bottom:20px; font-size:36px; font-weight:600; color:#1D1D1F; }
-.sprints-block p { text-align:center; color:#6E6E73; font-size:18px; max-width:800px; margin:0 auto 50px; }
+#stech-root .sprints-block h2 { text-align:center; margin-bottom:20px; font-size:36px; font-weight:600; color:#1D1D1F; }
+#stech-root .sprints-block p { text-align:center; color:#6E6E73; font-size:18px; max-width:800px; margin:0 auto 50px; }
 
-.progress-line { display:flex; justify-content:center; margin-bottom:50px; }
-.progress-line > .progress-bar { width:80%; height:6px; background:#E5E5EA; border-radius:3px; position:relative; overflow:hidden; }
-.progress-line > .progress-bar::after { content:''; display:block; width:45%; height:100%; background:linear-gradient(90deg, #007AFF, #1D1D1F); border-radius:3px; animation:progressPulse 2s infinite alternate; }
+#stech-root .progress-line { display:flex; justify-content:center; margin-bottom:50px; }
+#stech-root .progress-line > .progress-bar { width:80%; height:6px; background:#E5E5EA; border-radius:3px; position:relative; overflow:hidden; }
+#stech-root .progress-line > .progress-bar::after { content:''; display:block; width:45%; height:100%; background:linear-gradient(90deg, #007AFF, #1D1D1F); border-radius:3px; animation:progressPulse 2s infinite alternate; }
 @keyframes progressPulse { 0% {opacity:0.7;} 100% {opacity:1;} }
 
 /* === Календарь + спринты === */
-.sprints-layout { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; }
-.calendar-container { background:#f9fafb; border-radius:24px; box-shadow:0 8px 24px rgba(0,0,0,0.08); padding:20px 28px; width:360px; min-width:360px; box-sizing:border-box; }
-.calendar-nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
-.calendar-nav button { border:none; background:#007aff; color:white; font-size:16px; padding:6px 12px; border-radius:8px; cursor:pointer; }
-.calendar-nav button:hover { background:#005ecb; }
+#stech-root .sprints-layout { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; }
+#stech-root .calendar-container { background:#f9fafb; border-radius:24px; box-shadow:0 8px 24px rgba(0,0,0,0.08); padding:20px 28px; width:360px; min-width:360px; box-sizing:border-box; }
+#stech-root .calendar-nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+#stech-root .calendar-nav button { border:none; background:#007aff; color:white; font-size:16px; padding:6px 12px; border-radius:8px; cursor:pointer; }
+#stech-root .calendar-nav button:hover { background:#005ecb; }
 
 /* Сетка календаря */
-.calendar-header { display:grid; grid-template-columns:repeat(7,1fr); text-align:center; font-weight:600; color:#6e6e73; margin-bottom:6px; }
-.calendar-grid { display:grid; grid-template-columns:repeat(7,1fr); grid-auto-rows:40px; gap:6px; text-align:center; font-size:14px; }
-.calendar-day { display:flex; align-items:center; justify-content:center; border-radius:10px; transition:0.2s; position:relative; box-sizing:border-box; width:100%; height:100%; }
-.calendar-day.prevMonth, .calendar-day.nextMonth { color:#a0a0a0; }
+#stech-root .calendar-header { display:grid; grid-template-columns:repeat(7,1fr); text-align:center; font-weight:600; color:#6e6e73; margin-bottom:6px; }
+#stech-root .calendar-grid { display:grid; grid-template-columns:repeat(7,1fr); grid-auto-rows:40px; gap:6px; text-align:center; font-size:14px; }
+#stech-root .calendar-day { display:flex; align-items:center; justify-content:center; border-radius:10px; transition:0.2s; position:relative; box-sizing:border-box; width:100%; height:100%; }
+#stech-root .calendar-day.prevMonth, #stech-root .calendar-day.nextMonth { color:#a0a0a0; }
 
 /* Градиент спринта */
-.calendar-day.sprint { background: linear-gradient(90deg, #007aff20 0%, #007aff05 50%, #007aff20 100%); }
+#stech-root .calendar-day.sprint { background: linear-gradient(90deg, #007aff20 0%, #007aff05 50%, #007aff20 100%); }
 
 /* Сегодня */
-.calendar-day.current { background:#007aff; color:white; font-weight:700; border:2px solid #004bb5; box-shadow:0 0 8px rgba(0,122,255,0.4); z-index:2; position:relative; }
+#stech-root .calendar-day.current { background:#007aff; color:white; font-weight:700; border:2px solid #004bb5; box-shadow:0 0 8px rgba(0,122,255,0.4); z-index:2; position:relative; }
 
 /* Если день и сегодня, и спринт — объединяем стили */
-.calendar-day.sprint.current {
+#stech-root .calendar-day.sprint.current {
   background: linear-gradient(135deg, #007aff 0%, #007aff20 100%);
   color:white;
   font-weight:700;
@@ -2665,18 +2797,18 @@ return groups;
 }
 
 /* Легенда */
-.calendar-legend { margin-top:12px; font-size:14px; display:flex; gap:12px; align-items:center; }
-.legend-sprint { display:inline-block; width:16px; height:16px; background:linear-gradient(90deg, #007aff20 0%, #007aff05 50%, #007aff20 100%); border-radius:4px; }
-.legend-today { display:inline-block; width:16px; height:16px; background:#007aff; border-radius:4px; }
+#stech-root .calendar-legend { margin-top:12px; font-size:14px; display:flex; gap:12px; align-items:center; }
+#stech-root .legend-sprint { display:inline-block; width:16px; height:16px; background:linear-gradient(90deg, #007aff20 0%, #007aff05 50%, #007aff20 100%); border-radius:4px; }
+#stech-root .legend-today { display:inline-block; width:16px; height:16px; background:#007aff; border-radius:4px; }
 
 /* Карточки спринтов */
-.sprints-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; max-height:500px; overflow-y:auto; }
-.sprint-card { background:white; border:1px solid #e0e0e0; border-radius:16px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; }
-.sprint-card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
-.sprint-card .status { font-weight:600; font-size:16px; display:flex; align-items:center; gap:6px; }
-.status.completed { color:#8e8e93; }
-.status.active { color:#007aff; }
-.status.upcoming { color:#34c759; }
+#stech-root .sprints-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; max-height:500px; overflow-y:auto; }
+#stech-root .sprint-card { background:white; border:1px solid #e0e0e0; border-radius:16px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+#stech-root .sprint-card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
+#stech-root .sprint-card .status { font-weight:600; font-size:16px; display:flex; align-items:center; gap:6px; }
+#stech-root .status.completed { color:#8e8e93; }
+#stech-root .status.active { color:#007aff; }
+#stech-root .status.upcoming { color:#34c759; }
 </style>
 
 <script>
@@ -2797,28 +2929,63 @@ renderSprints();
 </div>
 
 <!-- 🔶 Мини-баннер Хабр -->
-<div id="habrBanner" style="
-  position: fixed;
-  bottom: -160px;
-  right: 20px;
-  background: linear-gradient(135deg, #ff7a00, #ffbb33);
-  color: white;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 15px;
-  z-index: 9999;
-  transition: bottom 0.8s ease, opacity 0.8s ease;
-  opacity: 0;
-  cursor: pointer;
-">
+<div
+  id="habrBanner"
+  class="stech-habr-banner"
+  role="complementary"
+  aria-label="Ссылка на статьи Sminex.tech на Хабре"
+>
+  <div class="stech-habr-indicator" aria-hidden="true"></div>
 
-  <!-- Мигающий индикатор -->
-  <div style="
+  <button
+    id="closeHabrBanner"
+    type="button"
+    class="stech-habr-close"
+    aria-label="Закрыть баннер"
+  >×</button>
+
+  <a
+    class="stech-habr-link"
+    href="https://habr.com/ru/companies/sminex/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Мы на Хабре!<br>Читайте статьи Sminex.tech
+  </a>
+</div>
+
+<style>
+  @keyframes habrBlink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.2; }
+  }
+
+  #stech-root .stech-habr-banner {
+    position: fixed;
+    bottom: -180px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff7a00, #ffbb33);
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    z-index: 9999;
+    transition: bottom 0.8s ease, opacity 0.8s ease;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  #stech-root .stech-habr-banner.is-visible {
+    bottom: 20px;
+    opacity: 1;
+  }
+
+  #stech-root .stech-habr-indicator {
     width: 10px;
     height: 10px;
     background: white;
@@ -2828,10 +2995,9 @@ renderSprints();
     top: 10px;
     left: 10px;
     box-shadow: 0 0 6px white;
-  "></div>
+  }
 
-  <!-- Кнопка закрытия -->
-  <button id="closeHabrBanner" type="button" style="
+  #stech-root .stech-habr-close {
     background: rgba(255,255,255,0.25);
     color: white;
     border: none;
@@ -2842,129 +3008,197 @@ renderSprints();
     cursor: pointer;
     align-self: flex-end;
     transition: background 0.3s;
-  ">×</button>
+  }
 
-  <!-- Ссылка -->
-  <a href="https://habr.com/ru/companies/sminex/" target="_blank" style="
+  #stech-root .stech-habr-close:hover,
+  #stech-root .stech-habr-banner:focus-visible .stech-habr-close {
+    background: rgba(255,255,255,0.35);
+  }
+
+  #stech-root .stech-habr-link {
     color: white;
     text-decoration: none;
     font-weight: 600;
     z-index: 1;
-  ">
-    Мы на Хабре!<br>Читайте статьи Sminex.tech
-  </a>
-</div>
-
-<style>
-@keyframes habrBlink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0.2; }
-}
+    line-height: 1.4;
+  }
 </style>
 
 <script>
-// Появление баннера через 10 секунд
-setTimeout(() => {
-  const banner = document.getElementById('habrBanner');
-  if (banner) {
-    banner.style.bottom = '20px';
-    banner.style.opacity = '1';
-  }
-}, 10000);
+  (function initStechHabrBanner() {
+    const root = document.getElementById('stech-root');
+    if (!root) return;
 
-// Закрытие баннера
-document.getElementById('closeHabrBanner').addEventListener('click', (e) => {
-  e.stopPropagation();
-  const banner = document.getElementById('habrBanner');
-  banner.style.bottom = '-160px';
-  banner.style.opacity = '0';
-});
+    const banner = root.querySelector('#habrBanner');
+    const closeBtn = root.querySelector('#closeHabrBanner');
+    if (!banner || !closeBtn) return;
 
-// Клик по баннеру = переход на Хабр
-document.getElementById('habrBanner').addEventListener('click', () => {
-  window.open('https://habr.com/ru/companies/sminex_developer/articles/', '_blank');
-});
+    const showBanner = () => banner.classList.add('is-visible');
+    const hideBanner = () => banner.classList.remove('is-visible');
+
+    const timerId = window.setTimeout(showBanner, 10000);
+
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hideBanner();
+      window.clearTimeout(timerId);
+    });
+
+    banner.addEventListener('click', () => {
+      window.open('https://habr.com/ru/companies/sminex_developer/articles/', '_blank');
+    });
+  })();
 </script>
 
 
 <!-- Контейнер для язычка и плеера -->
-<div style="position:fixed; top:120px; right:0; z-index:999;">
+<div class="stech-podcast-container">
 
   <!-- Язычок всегда виден -->
-  <div id="podcast-tab" style="
-      width:40px;             /* чуть шире */
-      height:220px;           /* теперь равен высоте плеера */
-      background:#007AFF;
-      border-radius:16px 0 0 16px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      color:white;
-      font-size:12px;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      text-align:center;
-      position:relative;
-      z-index:1000;
-  ">
-   <br>Подкаст Бетон и Цифра
+  <div id="podcast-tab" class="stech-podcast-tab">
+    Подкаст Бетон и Цифра
   </div>
 
   <!-- Плеер полностью скрыт за экраном -->
-  <div id="podcast-expand" style="
-      position:fixed;
-      top:120px;
-      right:-260px; /* спрятан за экраном */
-      width:260px;
-      height:200px;
-      background:white;
-      border-radius:16px;
-      box-shadow:0 4px 24px rgba(0,0,0,0.2);
-      padding:12px;
-      overflow:hidden;
-      transition: right 0.3s ease;
-      z-index:999;
-  ">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+  <div id="podcast-expand" class="stech-podcast-expand" aria-hidden="true">
+    <div class="stech-podcast-header">
       <div>
-        <strong style="font-size:14px; color:#1d1d1f;">Бетон и Цифра</strong><br>
-        <span style="font-size:12px; color:#6e6e73;">с Павлом Осиповым</span>
+        <strong>Бетон и Цифра</strong><br>
+        <span>с Павлом Осиповым</span>
       </div>
-      <button id="podcast-close" style="
-          background:transparent;
-          border:none;
-          font-size:18px;
-          cursor:pointer;
-          color:#1d1d1f;
-      ">×</button>
+      <button id="podcast-close" class="stech-podcast-close" aria-label="Закрыть подкаст">×</button>
     </div>
-    <div id="vk_podcast_top_right_-233288255_456239020" style="width:100%; height:120px;"></div>
+    <div id="vk_podcast_top_right_-233288255_456239020" class="stech-podcast-widget"></div>
   </div>
 </div>
 
+<style>
+  #stech-root .stech-podcast-container {
+    position: fixed;
+    top: 120px;
+    right: 0;
+    z-index: 999;
+  }
+
+  #stech-root .stech-podcast-tab {
+    width: 40px;
+    height: 220px;
+    background: #007AFF;
+    border-radius: 16px 0 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: center;
+    position: relative;
+    z-index: 1000;
+    letter-spacing: 0.4px;
+  }
+
+  #stech-root .stech-podcast-expand {
+    position: fixed;
+    top: 120px;
+    right: -260px;
+    width: 260px;
+    height: 200px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    padding: 12px;
+    overflow: hidden;
+    transition: right 0.3s ease;
+    z-index: 999;
+    box-sizing: border-box;
+  }
+
+  #stech-root .stech-podcast-expand.is-open {
+    right: 60px;
+  }
+
+  #stech-root .stech-podcast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    gap: 8px;
+  }
+
+  #stech-root .stech-podcast-header strong {
+    font-size: 14px;
+    color: #1d1d1f;
+  }
+
+  #stech-root .stech-podcast-header span {
+    font-size: 12px;
+    color: #6e6e73;
+  }
+
+  #stech-root .stech-podcast-close {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #1d1d1f;
+    line-height: 1;
+    padding: 4px;
+  }
+
+  #stech-root .stech-podcast-widget {
+    width: 100%;
+    height: 120px;
+  }
+</style>
+
 <script src="https://vk.com/js/api/openapi.js?173"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-  VK.Widgets.Podcast("vk_podcast_top_right_-233288255_456239020", "-233288255_456239020", 'b75a82d07d7c1ba701');
+  (function initStechPodcast() {
+    const root = document.getElementById('stech-root');
+    if (!root) return;
 
-  const tab = document.getElementById('podcast-tab');
-  const expand = document.getElementById('podcast-expand');
-  const closeBtn = document.getElementById('podcast-close');
-  let isOpen = false;
+    const tab = root.querySelector('#podcast-tab');
+    const expand = root.querySelector('#podcast-expand');
+    const closeBtn = root.querySelector('#podcast-close');
+    if (!tab || !expand || !closeBtn) return;
 
-  tab.addEventListener('click', () => {
-    expand.style.right = isOpen ? '-260px' : '60px'; // выезжает ровно под язычок
-    isOpen = !isOpen;
-  });
+    const toggleExpand = () => {
+      const isOpen = expand.classList.toggle('is-open');
+      expand.setAttribute('aria-hidden', String(!isOpen));
+    };
 
-  closeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    expand.style.right = '-260px';
-    isOpen = false;
-  });
-});
+    const hideExpand = () => {
+      expand.classList.remove('is-open');
+      expand.setAttribute('aria-hidden', 'true');
+    };
+
+    tab.addEventListener('click', toggleExpand);
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hideExpand();
+    });
+
+    const initPodcast = () => {
+      if (window.VK && window.VK.Widgets && typeof window.VK.Widgets.Podcast === 'function') {
+        window.VK.Widgets.Podcast(
+          'vk_podcast_top_right_-233288255_456239020',
+          '-233288255_456239020',
+          'b75a82d07d7c1ba701'
+        );
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPodcast, { once: true });
+    } else {
+      initPodcast();
+    }
+  })();
 </script>
+
+</div>
 
 
