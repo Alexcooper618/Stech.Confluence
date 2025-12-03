@@ -486,25 +486,26 @@
 
 /* Контейнер карточек */
 #stech-root .prod-cards-wrapper {
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:24px;
+  align-items:stretch;
+  justify-items:stretch;
 }
 
 /* Карточки */
 #stech-root .prod-card {
-  flex:1 1 220px;
+  width:100%;
   background:white;
   border-radius:28px;
-  padding:20px;
+  padding:22px 20px;
   text-align:center;
   box-shadow:0 4px 20px rgba(0,0,0,0.05);
   transition: transform 0.3s, box-shadow 0.3s;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  min-width:0; /* важно для адаптивности */
+  min-height:100%;
 }
 
 #stech-root .prod-card h3 {
@@ -531,8 +532,8 @@
 
 @media (max-width:900px) {
   #stech-root .prod-cards-wrapper {
-    flex-direction:column;
-    gap:20px;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:18px;
   }
 }
 </style>
@@ -847,33 +848,41 @@
 
 /* === Карточки === */
 #stech-root .cluster-row {
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 1fr);
+  gap: 16px;
   overflow-x: auto;
-  padding: 12px 6px;
+  padding: 16px 20px;
   scroll-snap-type: x mandatory;
+  scroll-padding: 20px;
   -webkit-overflow-scrolling: touch;
   align-items: stretch;
 }
 
 #stech-root .card {
-  flex: 0 0 24%;
-  min-width: 220px;
-  max-width: 300px;
+  width: 100%;
+  min-width: 280px;
+  max-width: 360px;
   box-sizing: border-box;
   background: #fff;
   border: 1px solid #e6e9ee;
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 10px;
+  padding: 14px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  min-height: 220px;
+  min-height: 230px;
   position: relative;
 }
 
-@media (max-width: 1100px) { #stech-root .card { flex: 0 0 32%; } }
-@media (max-width: 760px) { #stech-root .card { flex: 0 0 70%; min-width: 260px; } }
+@media (max-width: 1024px) {
+  #stech-root .cluster-row { grid-auto-columns: minmax(260px, 1fr); padding: 14px 16px; }
+}
+@media (max-width: 760px) {
+  #stech-root .cluster-row { grid-auto-columns: minmax(78vw, 1fr); gap: 14px; }
+  #stech-root .card { min-width: 240px; max-width: 320px; }
+}
 
 #stech-root .card-head { display: flex; gap: 10px; align-items: center; }
 #stech-root .card-avatar {
@@ -907,7 +916,7 @@
   font-size: 13px;
   color: #222;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.4;
@@ -1008,6 +1017,34 @@
   overflow: visible;
 }
 
+#stech-root .cluster-wrap::before,
+#stech-root .cluster-wrap::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  width: 34px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+
+#stech-root .cluster-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, #f9fafc 0%, rgba(249, 250, 252, 0));
+}
+
+#stech-root .cluster-wrap::after {
+  right: 0;
+  background: linear-gradient(270deg, #f9fafc 0%, rgba(249, 250, 252, 0));
+}
+
+#stech-root .cluster-wrap.is-scrollable::before,
+#stech-root .cluster-wrap.is-scrollable::after { opacity: 1; }
+#stech-root .cluster-wrap.at-start::before { opacity: 0; }
+#stech-root .cluster-wrap.at-end::after { opacity: 0; }
+
 #stech-root .scroll-btn {
   position: absolute;
   top: 50%;
@@ -1025,8 +1062,8 @@
   z-index: 10;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-#stech-root .scroll-btn.left { left: -48px; }
-#stech-root .scroll-btn.right { right: -48px; }
+#stech-root .scroll-btn.left { left: 4px; }
+#stech-root .scroll-btn.right { right: 4px; }
 #stech-root .scroll-btn[disabled] { opacity: 0.4; cursor: default; }
 
 /* === Аккордеоны (по ролям) === */
@@ -1252,16 +1289,16 @@
 #stech-root .member-prods a:hover {
   text-decoration: underline;
 }
-/* --- Ограничение описания продукта 4 строками --- */
+/* --- Ограничение описания продукта 6 строками --- */
 #stech-root .card-body.desc {
   display: -webkit-box !important;
-  -webkit-line-clamp: 4 !important;
+  -webkit-line-clamp: 6 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   text-overflow: ellipsis;
   white-space: normal;
   line-height: 1.45;
-  max-height: calc(1.45em * 4);
+  max-height: calc(1.45em * 6);
   margin-bottom: 8px;
 }
 /* --- Выравнивание стрелки и названия кластера в режиме "по ролям" --- */
@@ -1997,15 +2034,27 @@ function renderClusters(groups) {
     function scrollPage(dir) {
       const scrollAmount = row.clientWidth - 24;
       row.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+      setTimeout(updateScrollState, 200);
     }
     btnL.addEventListener('click', () => scrollPage(-1));
     btnR.addEventListener('click', () => scrollPage(1));
-    function updateButtons() {
-      btnL.disabled = row.scrollLeft <= 2;
-      btnR.disabled = (row.scrollWidth - row.clientWidth - row.scrollLeft) <= 2;
+    function updateScrollState() {
+      const hiddenPart = row.scrollWidth - row.clientWidth;
+      const atStart = row.scrollLeft <= 2 || hiddenPart <= 0;
+      const atEnd = (hiddenPart - row.scrollLeft) <= 2;
+      const hasOverflow = hiddenPart > 2;
+
+      btnL.disabled = atStart;
+      btnR.disabled = atEnd;
+
+      wrap.classList.toggle('is-scrollable', hasOverflow);
+      wrap.classList.toggle('at-start', atStart);
+      wrap.classList.toggle('at-end', atEnd);
     }
-    row.addEventListener('scroll', updateButtons);
-    setTimeout(updateButtons, 100);
+    const handleScroll = () => updateScrollState();
+    row.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateScrollState);
+    setTimeout(updateScrollState, 120);
 
     // клик по заголовку кластера (сворачивание/раскрытие)
     head.addEventListener('click', () => {
