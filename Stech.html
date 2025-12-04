@@ -3094,16 +3094,8 @@ function createCalendar(sprint){
   calendarEl.innerHTML = html;
 }
 
-function findDefaultSprint(){
-  const active = sprints.find(s => getSprintStatus(s) === "active");
-  if(active) return active;
-  const upcoming = sprints.find(s => formatDate(s.start) >= today);
-  return upcoming || sprints[sprints.length - 1] || null;
-}
-
 function renderSprints(){
-  const defaultSprint = findDefaultSprint();
-  selectedSprint = defaultSprint;
+  let defaultSprint=null;
   sprintContainer.innerHTML = '';
   let lastYear=null;
   sprints.forEach(sprint=>{
@@ -3118,13 +3110,7 @@ function renderSprints(){
     const card=document.createElement("div"); card.className="sprint-card";
     const status=getSprintStatus(sprint);
     card.innerHTML=`<div><div class="num">Спринт ${sprint.num}</div><div class="dates">${sprint.start} — ${sprint.end}</div></div><div class="status ${status}">${status==="completed"?"Завершён":status==="active"?"Активный":"Будущий"}</div>`;
-
-    if(defaultSprint && sprint.num === defaultSprint.num){
-      card.classList.add('active');
-      const monthIndex=getSprintMonthIndex(sprint);
-      if(monthIndex>=0) currentMonthIndex=monthIndex;
-    }
-
+    if(status==="active") defaultSprint=sprint;
     card.addEventListener('click',()=>{
       document.querySelectorAll('.sprint-card').forEach(c=>c.classList.remove('active'));
       card.classList.add('active');
@@ -3136,7 +3122,16 @@ function renderSprints(){
     sprintContainer.appendChild(card);
   });
 
-  createCalendar(selectedSprint);
+  if(defaultSprint){
+    const defaultCard = Array.from(sprintContainer.children).find(c=>c.querySelector('.num').textContent.includes(defaultSprint.num));
+    if(defaultCard){
+      defaultCard.classList.add('active');
+      selectedSprint=defaultSprint;
+      const monthIndex=getSprintMonthIndex(defaultSprint);
+      if(monthIndex>=0) currentMonthIndex=monthIndex;
+      createCalendar(selectedSprint);
+    }
+  } else createCalendar();
 }
 
 document.getElementById('prevMonth').addEventListener('click',()=>{ if(currentMonthIndex>0) currentMonthIndex--; createCalendar(selectedSprint); });
