@@ -2857,6 +2857,8 @@ return groups;
 
 /* Карточки спринтов */
 #stech-root .sprints-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; max-height:500px; overflow-y:auto; }
+#stech-root .sprint-year-divider { grid-column:1 / -1; display:flex; align-items:center; gap:10px; font-size:16px; font-weight:700; color:#1d1d1f; background:linear-gradient(90deg, #eef3ff 0%, #ffffff 100%); border:1px solid #dce6ff; border-radius:12px; padding:10px 14px; position:sticky; top:0; z-index:2; box-shadow:0 4px 10px rgba(0,0,0,0.03); }
+#stech-root .sprint-year-divider::before { content:''; width:10px; height:10px; background:#007aff; border-radius:50%; box-shadow:0 0 0 4px rgba(0,122,255,0.12); }
 #stech-root .sprint-card { background:white; border:1px solid #e0e0e0; border-radius:16px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:transform 0.3s, box-shadow 0.3s; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; }
 #stech-root .sprint-card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 #stech-root .sprint-card .status { font-weight:600; font-size:16px; display:flex; align-items:center; gap:6px; }
@@ -3046,14 +3048,39 @@ function createCalendar(sprint){
   calendarEl.innerHTML = html;
 }
 
+function findDefaultSprint(){
+  const active = sprints.find(s => getSprintStatus(s) === "active");
+  if(active) return active;
+  const upcoming = sprints.find(s => formatDate(s.start) >= today);
+  return upcoming || sprints[sprints.length - 1] || null;
+}
+
 function renderSprints(){
-  let defaultSprint=null;
+  const defaultSprint = findDefaultSprint();
+  selectedSprint = defaultSprint;
   sprintContainer.innerHTML = '';
+  let lastYear=null;
+
   sprints.forEach(sprint=>{
+    const sprintYear = sprint.start.split('.').pop();
+    if(sprintYear !== lastYear){
+      lastYear = sprintYear;
+      const yearLabel = document.createElement('div');
+      yearLabel.className = 'sprint-year-divider';
+      yearLabel.textContent = `${sprintYear} год`;
+      sprintContainer.appendChild(yearLabel);
+    }
+
     const card=document.createElement("div"); card.className="sprint-card";
     const status=getSprintStatus(sprint);
     card.innerHTML=`<div><div class="num">Спринт ${sprint.num}</div><div class="dates">${sprint.start} — ${sprint.end}</div></div><div class="status ${status}">${status==="completed"?"Завершён":status==="active"?"Активный":"Будущий"}</div>`;
-    if(status==="active") defaultSprint=sprint;
+
+    if(defaultSprint && sprint.num === defaultSprint.num){
+      card.classList.add('active');
+      const monthIndex=getSprintMonthIndex(sprint);
+      if(monthIndex>=0) currentMonthIndex=monthIndex;
+    }
+
     card.addEventListener('click',()=>{
       document.querySelectorAll('.sprint-card').forEach(c=>c.classList.remove('active'));
       card.classList.add('active');
@@ -3065,16 +3092,7 @@ function renderSprints(){
     sprintContainer.appendChild(card);
   });
 
-  if(defaultSprint){
-    const defaultCard = Array.from(sprintContainer.children).find(c=>c.querySelector('.num').textContent.includes(defaultSprint.num));
-    if(defaultCard){
-      defaultCard.classList.add('active');
-      selectedSprint=defaultSprint;
-      const monthIndex=getSprintMonthIndex(defaultSprint);
-      if(monthIndex>=0) currentMonthIndex=monthIndex;
-      createCalendar(selectedSprint);
-    }
-  } else createCalendar();
+  createCalendar(selectedSprint);
 }
 
 document.getElementById('prevMonth').addEventListener('click',()=>{ if(currentMonthIndex>0) currentMonthIndex--; createCalendar(selectedSprint); });
