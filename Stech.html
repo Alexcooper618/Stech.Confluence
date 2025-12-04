@@ -2819,7 +2819,7 @@ return groups;
 @keyframes progressPulse { 0% {opacity:0.7;} 100% {opacity:1;} }
 
 /* === Календарь + спринты === */
-#stech-root .sprints-layout { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; }
+#stech-root .sprints-layout { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; align-items:flex-start; }
 #stech-root .calendar-container { background:#f9fafb; border-radius:24px; box-shadow:0 8px 24px rgba(0,0,0,0.08); padding:20px 28px; width:360px; min-width:360px; box-sizing:border-box; }
 #stech-root .calendar-nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
 #stech-root .calendar-nav button { border:none; background:#007aff; color:white; font-size:16px; padding:6px 12px; border-radius:8px; cursor:pointer; }
@@ -2981,6 +2981,15 @@ let currentMonthIndex = Math.max(0, months.findIndex(({month, year}) => {
 }));
 let selectedSprint = null;
 
+function getSprintMonthIndex(sprint){
+  const start = formatDate(sprint.start);
+  const end = formatDate(sprint.end);
+  const targetDate = (today>=start && today<=end) ? today : start;
+  const sprintMonth = targetDate.getMonth()+1;
+  const sprintYear = targetDate.getFullYear();
+  return months.findIndex(({month, year}) => month===sprintMonth && year===sprintYear);
+}
+
 function formatDate(dateStr){ const [d,m,y]=dateStr.split('.').map(Number); return new Date(y,m-1,d); }
 function getSprintStatus(sprint){ const start=formatDate(sprint.start), end=formatDate(sprint.end); if(today>end) return "completed"; if(today>=start && today<=end) return "active"; return "upcoming"; }
 
@@ -3049,9 +3058,7 @@ function renderSprints(){
       document.querySelectorAll('.sprint-card').forEach(c=>c.classList.remove('active'));
       card.classList.add('active');
       selectedSprint=sprint;
-      const sprintStart=formatDate(sprint.start);
-      const sprintMonth=sprintStart.getMonth()+1;
-      const monthIndex=months.findIndex(({month, year}) => month===sprintMonth && year===sprintStart.getFullYear());
+      const monthIndex=getSprintMonthIndex(sprint);
       if(monthIndex>=0) currentMonthIndex=monthIndex;
       createCalendar(selectedSprint);
     });
@@ -3063,9 +3070,7 @@ function renderSprints(){
     if(defaultCard){
       defaultCard.classList.add('active');
       selectedSprint=defaultSprint;
-      const sprintStart=formatDate(defaultSprint.start);
-      const sprintMonth=sprintStart.getMonth()+1;
-      const monthIndex=months.findIndex(({month, year}) => month===sprintMonth && year===sprintStart.getFullYear());
+      const monthIndex=getSprintMonthIndex(defaultSprint);
       if(monthIndex>=0) currentMonthIndex=monthIndex;
       createCalendar(selectedSprint);
     }
