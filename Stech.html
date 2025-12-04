@@ -2795,6 +2795,7 @@ return groups;
       <div class="calendar-legend">
         <span class="legend-sprint"></span> Спринт
         <span class="legend-today"></span> Сегодня
+        <span class="legend-holiday"></span> Праздник РФ
       </div>
     </div>
 
@@ -2849,6 +2850,10 @@ return groups;
 #stech-root .calendar-legend { margin-top:12px; font-size:14px; display:flex; gap:12px; align-items:center; }
 #stech-root .legend-sprint { display:inline-block; width:16px; height:16px; background:linear-gradient(90deg, #007aff20 0%, #007aff05 50%, #007aff20 100%); border-radius:4px; }
 #stech-root .legend-today { display:inline-block; width:16px; height:16px; background:#007aff; border-radius:4px; }
+#stech-root .legend-holiday { display:inline-block; width:16px; height:16px; background:#ffe066; border-radius:4px; border:1px solid #f5c000; }
+
+#stech-root .calendar-day.holiday { background: #fff5cc; border: 1px solid #ffd54f; font-weight: 700; color:#6b4b00; }
+#stech-root .calendar-day.holiday.current { background: linear-gradient(135deg, #007aff 0%, #fff5cc 100%); color:#1d1d1f; box-shadow:0 0 8px rgba(255,213,79,0.6); }
 
 /* Карточки спринтов */
 #stech-root .sprints-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; max-height:500px; overflow-y:auto; }
@@ -2896,11 +2901,63 @@ const sprints = [
   { num:"6.4.26", start:"14.12.2026", end:"30.12.2026" }
 ];
 
+const holidays = {
+  // 2025 — официальный производственный календарь РФ
+  "2025-01-01": "Новый год",
+  "2025-01-02": "Новогодние каникулы",
+  "2025-01-03": "Новогодние каникулы",
+  "2025-01-04": "Новогодние каникулы",
+  "2025-01-05": "Новогодние каникулы",
+  "2025-01-06": "Новогодние каникулы",
+  "2025-01-07": "Рождество Христово",
+  "2025-01-08": "Новогодние каникулы",
+  "2025-02-23": "День защитника Отечества",
+  "2025-02-24": "Перенос выходного за 23 февраля",
+  "2025-03-08": "Международный женский день",
+  "2025-03-10": "Перенос выходного за 8 марта",
+  "2025-05-01": "Праздник Весны и Труда",
+  "2025-05-02": "Перенос выходного за январские каникулы",
+  "2025-05-09": "День Победы",
+  "2025-06-12": "День России",
+  "2025-10-31": "Перенос выходного за январские каникулы",
+  "2025-11-04": "День народного единства",
+
+  // 2026 — официальный производственный календарь РФ
+  "2026-01-01": "Новый год",
+  "2026-01-02": "Новогодние каникулы",
+  "2026-01-03": "Новогодние каникулы",
+  "2026-01-04": "Новогодние каникулы",
+  "2026-01-05": "Новогодние каникулы",
+  "2026-01-06": "Новогодние каникулы",
+  "2026-01-07": "Рождество Христово",
+  "2026-01-08": "Новогодние каникулы",
+  "2026-02-23": "День защитника Отечества",
+  "2026-03-08": "Международный женский день",
+  "2026-03-09": "Перенос выходного за 8 марта",
+  "2026-05-01": "Праздник Весны и Труда",
+  "2026-05-04": "Перенос выходного за январские каникулы",
+  "2026-05-09": "День Победы",
+  "2026-05-11": "Перенос выходного за 9 мая",
+  "2026-06-12": "День России",
+  "2026-11-03": "Перенос выходного за январские каникулы",
+  "2026-11-04": "День народного единства"
+};
+
 const today = new Date();
 const sprintContainer = document.getElementById('sprint-container');
 const calendarEl = document.getElementById('calendar');
 const monthTitle = document.getElementById('monthTitle');
 const monthSet = new Set();
+const holidayKeys = new Set(Object.keys(holidays));
+
+function formatISO(date){
+  return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+}
+
+function getHoliday(date){
+  const key = formatISO(date);
+  return holidayKeys.has(key) ? holidays[key] : null;
+}
 
 function addMonth(date){
   const monthKey = `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}`;
@@ -2945,18 +3002,22 @@ function createCalendar(sprint){
     const dayNum = prevMonthDays - i;
     const date = new Date(year, month-2, dayNum);
     let cls="calendar-day prevMonth";
+    const holidayLabel = getHoliday(date);
     if(sprint && date>=formatDate(sprint.start) && date<=formatDate(sprint.end)) cls+=" sprint";
+    if(holidayLabel) cls+=" holiday";
     if(date.toDateString()===today.toDateString()) cls+=" current";
-    html += `<div class="${cls}">${dayNum}</div>`;
+    html += `<div class="${cls}" ${holidayLabel?`title="${holidayLabel}"`:''}>${dayNum}</div>`;
   }
 
   // Текущий месяц
   for(let d=1; d<=daysInMonth; d++){
     const date = new Date(year, month-1, d);
     let cls="calendar-day";
+    const holidayLabel = getHoliday(date);
     if(sprint && date>=formatDate(sprint.start) && date<=formatDate(sprint.end)) cls+=" sprint";
+    if(holidayLabel) cls+=" holiday";
     if(date.toDateString()===today.toDateString()) cls+=" current";
-    html += `<div class="${cls}">${d}</div>`;
+    html += `<div class="${cls}" ${holidayLabel?`title="${holidayLabel}"`:''}>${d}</div>`;
   }
 
   // Следующий месяц
@@ -2965,9 +3026,11 @@ function createCalendar(sprint){
   for(let i=1;i<=nextDays;i++){
     const date = new Date(year, month, i);
     let cls="calendar-day nextMonth";
+    const holidayLabel = getHoliday(date);
     if(sprint && date>=formatDate(sprint.start) && date<=formatDate(sprint.end)) cls+=" sprint";
+    if(holidayLabel) cls+=" holiday";
     if(date.toDateString()===today.toDateString()) cls+=" current";
-    html += `<div class="${cls}">${i}</div>`;
+    html += `<div class="${cls}" ${holidayLabel?`title="${holidayLabel}"`:''}>${i}</div>`;
   }
 
   html+="</div>";
