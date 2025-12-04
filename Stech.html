@@ -3060,7 +3060,6 @@ function renderSprints(){
   selectedSprint = defaultSprint;
   sprintContainer.innerHTML = '';
   let lastYear=null;
-
   sprints.forEach(sprint=>{
     const sprintYear = sprint.start.split('.').pop();
     if(sprintYear !== lastYear){
@@ -3070,7 +3069,6 @@ function renderSprints(){
       yearLabel.textContent = `${sprintYear} год`;
       sprintContainer.appendChild(yearLabel);
     }
-
     const card=document.createElement("div"); card.className="sprint-card";
     const status=getSprintStatus(sprint);
     card.innerHTML=`<div><div class="num">Спринт ${sprint.num}</div><div class="dates">${sprint.start} — ${sprint.end}</div></div><div class="status ${status}">${status==="completed"?"Завершён":status==="active"?"Активный":"Будущий"}</div>`;
